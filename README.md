@@ -1,11 +1,11 @@
-```tsx
-import { useRouter } from 'next/router'; // [!code --]
-import { usePathname } from 'next/navigation'; // [!code ++]
+```diff
+- import { useRouter } from 'next/router';
++ import { usePathname } from 'next/navigation';
 
-export default Page() {
-  const router = useRouter(); // [!code --]
-  const { pathname } = router; // [!code --]
-  const pathname = usePathname(); // [!code ++]
+const Page = () => {
+-  const router = useRouter();
+-  const { pathname } = router;
++  const pathname = usePathname();
 
   return <div>Current Path: {pathname}</div>;
 };
