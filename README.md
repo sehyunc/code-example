@@ -1,6 +1,6 @@
 # Retrieving Pathname in Next.js
 
-Learn how to obtain the pathname of the current URL in Next.js using the `usePathname` hook.
+This guide demonstrates how to obtain the pathname of a current route in Next.js using the `useRouter` hook.
 
 ## Quick Steps
 
@@ -24,10 +24,11 @@ Learn how to obtain the pathname of the current URL in Next.js using the `usePat
    'use client';
    import { usePathname } from 'next/navigation';
    
-   export default function CurrentPath() {
+   const CurrentPath = () => {
      const pathname = usePathname();
      return <div>Path: {pathname}</div>;
    }
+   export default CurrentPath;
    ```
 
 **Note**: `usePathname` is specifically for Client Components, fitting within the Server Components architecture of Next.js. It's efficient as it doesn't require refetching when navigating, making it a crucial tool for modern web development.
