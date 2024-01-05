@@ -27,7 +27,7 @@ This guide demonstrates how to obtain the pathname of a current route in Next.js
    const CurrentPath = () => {
      const pathname = usePathname();
      return <div>Path: {pathname}</div>;
-   }
+   };
    export default CurrentPath;
    ```
 
