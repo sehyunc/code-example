@@ -4,26 +4,30 @@ This guide demonstrates how to obtain the pathname of a current route in Next.js
 
 ## Quick Steps
 
-1. **Import useRouter**: 
+1. **Import usePathname**: 
    ```tsx
-   import { useRouter } from 'next/router';
+   import { usePathname } from 'next/navigation';
    ```
 
 2. **Access Pathname**: 
-   In your component, use `useRouter` to access the router object, and then extract the `pathname`:
+   In your component, use usePathname to access the router object
    ```tsx
-   const router = useRouter();
-   const { pathname } = router;
+   'use client';
+   const pathname = usePathname();
+   return <p>Path: {pathname}</p>;
    ```
 
 3. **Example Usage**: 
    Display the current pathname:
    ```tsx
+   'use client';
+   import { usePathname } from 'next/navigation';
+   
    const CurrentPath = () => {
-     const { pathname } = useRouter();
+     const pathname = usePathname();
      return <div>Path: {pathname}</div>;
    };
    export default CurrentPath;
    ```
 
-Remember, `pathname` excludes base path, locale, or trailing slash configurations. It's immediate on the client-side but may require different handling during server-side rendering.
+**Note**: `usePathname` is specifically for Client Components, fitting within the Server Components architecture of Next.js. It's efficient as it doesn't require refetching when navigating, making it a crucial tool for modern web development.
